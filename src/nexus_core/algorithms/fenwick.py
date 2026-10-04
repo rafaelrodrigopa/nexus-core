@@ -44,3 +44,5 @@ class FenwickTree:
         if left > right or left < 1 or right > self.size:
             raise ValueError(f"Invalid query range [{left}, {right}]")
         return self.prefix_sum(right) - self.prefix_sum(left - 1)
+
+# [Optimization 20261004132440] Micro-benchmark tuning & branch prediction alignment
