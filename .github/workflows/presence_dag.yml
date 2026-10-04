@@ -1,0 +1,51 @@
+name: Autonomous Presence Engine (Cloud DAG)
+
+on:
+  schedule:
+    # Executa a cada 2 horas nos horários ativos (10h às 23h UTC = 07h às 20h BRT)
+    - cron: "0 10,12,14,16,18,20,22 * * *"
+  workflow_dispatch:
+    inputs:
+      action_mode:
+        description: 'Modo de execução'
+        required: true
+        default: 'once'
+        type: choice
+        options:
+          - once
+          - batch
+
+jobs:
+  activity-cycle:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    - name: Configure Git Author
+      run: |
+        git config --global user.name "Rafael Rodrigo"
+        git config --global user.email "rafael.rodrigo.p.a@gmail.com"
+
+    - name: Run Activity Engine Cycle
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPO: ${{ github.repository }}
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        MIN_DAILY_COMMITS: 5
+        MAX_DAILY_COMMITS: 20
+      run: |
+        python engine/bot.py --once
