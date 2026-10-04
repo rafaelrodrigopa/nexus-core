@@ -36,6 +36,7 @@ def benchmark_bloom_filter(iterations: int = 50_000) -> float:
 
 def benchmark_segment_tree(n: int = 10_000, queries: int = 50_000) -> float:
     data = [random.randint(1, 1000) for _ in range(n)]
+    # pyrefly: ignore [bad-argument-type]
     st = SegmentTree(data, func=min, default=float("inf"))
     start = time.perf_counter()
     for _ in range(queries):
