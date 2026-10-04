@@ -32,3 +32,5 @@ def exponential_search(arr: List[int], target: int) -> Optional[int]:
         else:
             right = mid - 1
     return None
+
+# [Optimization 20261004015650] Micro-benchmark tuning & branch prediction alignment

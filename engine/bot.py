@@ -415,7 +415,7 @@ def test_exponential_search():
 
 def query_gemini_for_code(api_key: str) -> Optional[Dict[str, Any]]:
     """Consulta a API do Google Gemini para gerar melhoria de código em padrão sênior."""
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key={api_key}"
     prompt = (
         "You are a Staff Software Engineer contributing to 'nexus-core', a high-performance Python 3.10+ "
         "library of algorithms, resilient concurrency, and data structures. "
@@ -446,7 +446,8 @@ def query_gemini_for_code(api_key: str) -> Optional[Dict[str, Any]]:
 
     try:
         req = urllib.request.Request(url, data=json.dumps(payload).encode("utf-8"), headers=headers, method="POST")
-        with urllib.request.urlopen(req, timeout=20) as resp:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+
             data = json.loads(resp.read().decode("utf-8"))
             candidate = data["candidates"][0]["content"]["parts"][0]["text"]
             # Remove crases se vier com formatação
