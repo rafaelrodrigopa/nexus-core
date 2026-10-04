@@ -87,6 +87,7 @@ class BotState:
             try:
                 content = json.loads(STATE_FILE.read_text(encoding="utf-8"))
                 if content.get("date") == today_str:
+                    # pyrefly: ignore [no-any-return-explicit]
                     return content
             except Exception:
                 pass
@@ -458,6 +459,7 @@ def query_gemini_for_code(api_key: str) -> Optional[Dict[str, Any]]:
                 cleaned = cleaned[3:]
             if cleaned.endswith("```"):
                 cleaned = cleaned[:-3]
+            # pyrefly: ignore [no-any-return-explicit]
             return json.loads(cleaned.strip())
     except Exception as e:
         log(f"⚠️ Gemini API indisponível ou erro na chamada: {e}. Usando gerador autônomo offline.")
@@ -497,6 +499,7 @@ class GitHubAPI:
                 data = json.loads(resp.read().decode("utf-8"))
                 issue_number = data.get("number")
                 log(f"📋 Issue #{issue_number} criada: '{title}'")
+                # pyrefly: ignore [no-any-return-implicit]
                 return issue_number
         except Exception as e:
             log(f"Aviso ao criar Issue via API: {e}")
@@ -513,6 +516,7 @@ class GitHubAPI:
                 data = json.loads(resp.read().decode("utf-8"))
                 pr_number = data.get("number")
                 log(f"🔀 Pull Request #{pr_number} aberto: '{title}' ({head_branch} -> {base_branch})")
+                # pyrefly: ignore [no-any-return-implicit]
                 return pr_number
         except Exception as e:
             log(f"Aviso ao criar PR via API: {e}")
@@ -737,9 +741,13 @@ class ActivityEngine:
                 # Executa o ciclo de commit/PR
                 self.perform_activity_cycle()
 
+            except (KeyboardInterrupt, SystemExit):
+                log("🛑 Nexus Core Activity Daemon encerrado graciosamente.")
+                break
             except Exception as e:
                 log(f"❌ Erro no loop de execução do daemon: {e}")
                 time.sleep(60)
+
 
 
 def main() -> None:
@@ -778,4 +786,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (KeyboardInterrupt, SystemExit):
+        pass
+
