@@ -28,6 +28,9 @@ if hasattr(sys.stdout, "reconfigure"):
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
+os.environ["GIT_DISCOVERY_ACROSS_FILESYSTEM"] = "1"
+
+
 
 # Diretórios base
 ROOT_DIR = Path(__file__).resolve().parent.parent

@@ -13,3 +13,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Observability and metrics: `MetricsCollector` and `StructuredLogger`.
 - Full pytest test suite with coverage guarantees.
 - Autonomous activity engine and orchestrator DAG integration.
+- **2026-10-04 01:45:40**: perf(algorithms): implement exponential search with tight logarithmic boundaries
