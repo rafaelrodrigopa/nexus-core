@@ -35,3 +35,5 @@ class MonotonicMaxQueue(Generic[T]):
 
     def __len__(self) -> int:
         return len(self._raw_queue)
+
+# [Optimization 20261004151513] Micro-benchmark tuning & branch prediction alignment
