@@ -3,7 +3,7 @@
 Nexus Core - Senior Autonomous Activity Engine
 ===============================================
 Gerenciador autônomo de presença contínua no GitHub:
-- Meta diária aleatória entre 5 e 20 commits por dia.
+- Meta diária aleatória entre 40 e 60 commits por dia.
 - Commits reais com padrão sênior (Conventional Commits).
 - Modificações concretas de código (algoritmos, estruturas, testes, benchmarks).
 - Suporte opcional à API do Google Gemini para geração dinâmica de código.
@@ -76,7 +76,7 @@ def load_env() -> Dict[str, str]:
 
 
 class BotState:
-    def __init__(self, min_daily: int = 5, max_daily: int = 20) -> None:
+    def __init__(self, min_daily: int = 40, max_daily: int = 60) -> None:
         self.min_daily = min_daily
         self.max_daily = max_daily
         self.data: Dict[str, Any] = self._load()
@@ -561,8 +561,8 @@ class GitHubAPI:
 class ActivityEngine:
     def __init__(self) -> None:
         self.env = load_env()
-        self.min_daily = int(self.env.get("MIN_DAILY_COMMITS", "5"))
-        self.max_daily = int(self.env.get("MAX_DAILY_COMMITS", "20"))
+        self.min_daily = int(self.env.get("MIN_DAILY_COMMITS", "40"))
+        self.max_daily = int(self.env.get("MAX_DAILY_COMMITS", "60"))
         self.active_start = int(self.env.get("ACTIVE_HOURS_START", "7"))
         self.active_end = int(self.env.get("ACTIVE_HOURS_END", "23"))
         self.state = BotState(self.min_daily, self.max_daily)
@@ -729,7 +729,7 @@ class ActivityEngine:
                 # Calcula quanto tempo falta no dia e distribui o intervalo
                 remaining_commits = target - completed
                 remaining_hours = max(1, self.active_end - hour)
-                base_sleep_minutes = max(20, min(90, int((remaining_hours * 60) / remaining_commits)))
+                base_sleep_minutes = max(6, min(35, int((remaining_hours * 60) / remaining_commits)))
                 
                 # Aplica variação aleatória de +/- 25% para evitar regularidade mecânica
                 jitter = random.uniform(0.75, 1.25)

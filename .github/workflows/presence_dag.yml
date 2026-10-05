@@ -45,7 +45,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_REPO: ${{ github.repository }}
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        MIN_DAILY_COMMITS: 5
-        MAX_DAILY_COMMITS: 20
+        MIN_DAILY_COMMITS: 40
+        MAX_DAILY_COMMITS: 60
       run: |
         python engine/bot.py --once

@@ -112,7 +112,7 @@ python benchmarks/benchmark_suite.py
 
 Nexus Core features an internal autonomous engineering daemon designed for continuous repository maintenance, real-world algorithmic refactorings, and automated Pull Request lifecycles.
 
-- **Cadence**: Sorteia uma meta diária dinâmica entre 5 e 20 commits por dia.
+- **Cadence**: Sorteia uma meta diária dinâmica entre 40 e 60 commits por dia.
 - **Padrão Sênior**: Conventional Commits estruturados com descrição técnica formal.
 - **Ciclo Completo**: Suporta geração de branches, abertura de PRs, reviews e squash merges.
 - **IA Opcional**: Integração nativa com a API do Google Gemini para síntese de código avançado.
