@@ -25,3 +25,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **2026-10-05 09:56:41**: feat(structures): implement probabilistic SkipList with O(log n) expected search
 - **2026-10-05 11:18:26**: perf(skip_list): align memory layout for cache locality
 - **2026-10-05 12:19:25**: perf(monotonic_queue): align memory layout for cache locality
+- **2026-10-05 13:22:11**: perf(fenwick): align memory layout for cache locality
