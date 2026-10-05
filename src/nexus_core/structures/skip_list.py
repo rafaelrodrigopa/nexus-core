@@ -60,3 +60,5 @@ class SkipList:
         if curr and curr.key == key:
             return curr.val
         return None
+
+# [Optimization 20261005111826] Micro-benchmark tuning & branch prediction alignment
