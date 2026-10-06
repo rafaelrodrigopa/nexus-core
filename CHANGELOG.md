@@ -33,3 +33,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **2026-10-05 19:11:21**: perf(fenwick): align memory layout for cache locality
 - **2026-10-05 21:42:42**: perf(search_ext): align memory layout for cache locality
 - **2026-10-05 23:28:03**: perf(fenwick): align memory layout for cache locality
+- **2026-10-06 01:15:36**: perf(fenwick): align memory layout for cache locality
