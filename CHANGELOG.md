@@ -118,3 +118,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **2026-10-19 16:43:21**: perf(skip_list): align memory layout for cache locality
 - **2026-10-20 08:35:30**: perf(monotonic_queue): align memory layout for cache locality
 - **2026-10-20 11:31:36**: perf(skip_list): align memory layout for cache locality
+- **2026-10-20 14:08:40**: perf(monotonic_queue): align memory layout for cache locality
