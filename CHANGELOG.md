@@ -131,3 +131,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **2026-10-21 23:13:21**: perf(fenwick): align memory layout for cache locality
 - **2026-10-22 08:15:18**: perf(fenwick): align memory layout for cache locality
 - **2026-10-22 14:36:04**: perf(fenwick): align memory layout for cache locality
+- **2026-10-22 15:37:12**: perf(monotonic_queue): align memory layout for cache locality
