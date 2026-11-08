@@ -87,3 +87,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **2026-11-06 22:58:06**: perf(fenwick): align memory layout for cache locality
 - **2026-11-07 16:16:17**: perf(monotonic_queue): align memory layout for cache locality
 - **2026-11-08 01:15:22**: perf(monotonic_queue): align memory layout for cache locality
+- **2026-11-08 21:55:42**: perf(fenwick): align memory layout for cache locality
