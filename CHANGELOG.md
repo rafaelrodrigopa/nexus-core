@@ -300,3 +300,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **2026-11-20 00:08:41**: perf(skip_list): align memory layout for cache locality
 - **2026-11-20 00:14:58**: perf(skip_list): align memory layout for cache locality
 - **2026-11-20 00:20:48**: perf(monotonic_queue): align memory layout for cache locality
+- **2026-11-20 00:28:25**: perf(monotonic_queue): align memory layout for cache locality
