@@ -305,3 +305,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **2026-11-20 00:42:20**: perf(search_ext): align memory layout for cache locality
 - **2026-11-20 00:49:06**: perf(search_ext): align memory layout for cache locality
 - **2026-11-20 00:56:57**: perf(monotonic_queue): align memory layout for cache locality
+- **2026-11-21 00:09:20**: perf(fenwick): align memory layout for cache locality
