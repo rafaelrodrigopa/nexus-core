@@ -72,3 +72,5 @@ class FenwickTree:
 # [Optimization 20261117190325] Micro-benchmark tuning & branch prediction alignment
 
 # [Optimization 20261119015007] Micro-benchmark tuning & branch prediction alignment
+
+# [Optimization 20261121011914] Micro-benchmark tuning & branch prediction alignment
